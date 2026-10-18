@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Toggle KWin between AMD-only (RTX 4050 can sleep, HDMI dead) and both GPUs (HDMI works).
+# HDMI is wired to the NVIDIA GPU on this laptop. Takes effect after log out / log in.
+dropin="$HOME/.config/systemd/user/plasma-kwin_wayland.service.d/amd-only.conf"
+oldenv="$HOME/.config/plasma-workspace/env/kwin-gpu.sh"   # earlier method, superseded
+amd=/dev/dri/amd-igpu
+mesa=/usr/share/glvnd/egl_vendor.d/50_mesa.json
+
+case "$1" in
+  off)
+    # Without the stable symlink KWin would get no GPU and freeze at login — refuse.
+    [[ -e $amd && -f $mesa ]] || { echo "error: $amd or $mesa missing — not changing anything"; exit 1; }
+    mkdir -p "${dropin%/*}"
+    # Scoped to KWin only, so games/prime-run can still use the 4050.
+    # Resolve the symlink at KWin start: given the symlink, KWin re-opens card2 after resume, logind refuses ("already taken") and the screen stays dead.
+    printf '[Service]\nEnvironment=__EGL_VENDOR_LIBRARY_FILENAMES=%s\nExecStart=\nExecStart=/bin/sh -c '"'"'KWIN_DRM_DEVICES=$(readlink -f %s) exec /usr/bin/kwin_wayland_wrapper --xwayland'"'"'\n' "$mesa" "$amd" > "$dropin"
+    rm -f "$oldenv"
+    systemctl --user daemon-reload
+    echo "HDMI off: KWin will use only the AMD GPU. Log out and back in." ;;
+  on)
+    rm -f "$dropin" "$oldenv"
+    systemctl --user daemon-reload
+    echo "HDMI on: KWin will use both GPUs. Log out and back in." ;;
+  *)
+    if [[ -f $dropin ]]; then echo "mode: off (AMD only, 4050 can sleep)"; else echo "mode: on (HDMI works)"; fi
+    echo "4050 status: $(cat /sys/bus/pci/devices/0000:01:00.0/power/runtime_status)"
+    echo "usage: hdmi-mode on|off" ;;
+esac

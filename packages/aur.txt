@@ -1,0 +1,3 @@
+antigravity-ide
+kwin-scripts-kzones
+kwin-zones

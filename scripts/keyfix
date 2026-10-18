@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Rebuild the pacman keyring (fixes "invalid or corrupted package (PGP signature)").
+set -e
+sudo rm -rf /etc/pacman.d/gnupg
+sudo pacman-key --init
+sudo pacman-key --populate
+sudo pacman -Sy --noconfirm archlinux-keyring

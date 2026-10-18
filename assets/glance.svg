@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="520" viewBox="0 0 1280 520" font-family="JetBrains Mono, Fira Code, DejaVu Sans Mono, monospace">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#1793D1"/><stop offset=".5" stop-color="#7B5CD6"/><stop offset="1" stop-color="#E0567C"/></linearGradient>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#0B1222"/><stop offset=".6" stop-color="#121A33"/><stop offset="1" stop-color="#2A1530"/></linearGradient>
+    <clipPath id="card"><rect width="1280" height="520" rx="22"/></clipPath>
+  </defs>
+  <g clip-path="url(#card)">
+    <rect width="1280" height="520" fill="url(#bg)"/>
+    <rect x="330" y="58" width="880" height="414" rx="10" fill="#0E1426" fill-opacity=".6" stroke="#E0567C" stroke-width="2"/>
+        <text x="70" y="150" fill="#E0567C" font-size="22" xml:space="preserve">      /\</text>
+    <text x="70" y="180" fill="#E0567C" font-size="22" xml:space="preserve">     /  \</text>
+    <text x="70" y="210" fill="#E0567C" font-size="22" xml:space="preserve">    /    \</text>
+    <text x="70" y="240" fill="#E0567C" font-size="22" xml:space="preserve">   /      \</text>
+    <text x="70" y="270" fill="#E0567C" font-size="22" xml:space="preserve">  /   ,,   \</text>
+    <text x="70" y="300" fill="#E0567C" font-size="22" xml:space="preserve"> /   |  |   \</text>
+    <text x="70" y="330" fill="#E0567C" font-size="22" xml:space="preserve">/_-''    ''-_\</text>
+    <rect x="344" y="44" width="218" height="28" fill="#10172B"/>
+    <text x="352" y="65" font-size="21" xml:space="preserve"><tspan fill="#E0567C">adarsh</tspan><tspan fill="#C9D3EA">@</tspan><tspan fill="#E0567C">arch-dots</tspan></text>
+    <circle cx="360" cy="103" r="5" fill="#4FA3E0"/>
+    <text x="378" y="110" font-size="21" fill="#4FA3E0" font-weight="700">os</text>
+    <text x="530" y="110" font-size="21" fill="#4FA3E0">&gt;</text>
+    <text x="562" y="110" font-size="21" fill="#E6EAF5">Arch Linux · btrfs · zram</text>
+    <circle cx="360" cy="134" r="5" fill="#C77DDB"/>
+    <text x="378" y="141" font-size="21" fill="#C77DDB" font-weight="700">desktop</text>
+    <text x="530" y="141" font-size="21" fill="#4FA3E0">&gt;</text>
+    <text x="562" y="141" font-size="21" fill="#E6EAF5">KDE Plasma 6 · Wayland</text>
+    <circle cx="360" cy="165" r="5" fill="#E0567C"/>
+    <text x="378" y="172" font-size="21" fill="#E0567C" font-weight="700">theme</text>
+    <text x="530" y="172" font-size="21" fill="#4FA3E0">&gt;</text>
+    <text x="562" y="172" font-size="21" fill="#E6EAF5">Layan · Kvantum · rounded corners</text>
+    <circle cx="360" cy="196" r="5" fill="#5CD6A0"/>
+    <text x="378" y="203" font-size="21" fill="#5CD6A0" font-weight="700">shell</text>
+    <text x="530" y="203" font-size="21" fill="#4FA3E0">&gt;</text>
+    <text x="562" y="203" font-size="21" fill="#E6EAF5">zsh · oh-my-zsh · oh-my-posh</text>
+    <circle cx="360" cy="227" r="5" fill="#45D3D3"/>
+    <text x="378" y="234" font-size="21" fill="#45D3D3" font-weight="700">terminal</text>
+    <text x="530" y="234" font-size="21" fill="#4FA3E0">&gt;</text>
+    <text x="562" y="234" font-size="21" fill="#E6EAF5">Konsole · Yakuake · fastfetch</text>
+    <circle cx="360" cy="258" r="5" fill="#C77DDB"/>
+    <text x="378" y="265" font-size="21" fill="#C77DDB" font-weight="700">login</text>
+    <text x="530" y="265" font-size="21" fill="#4FA3E0">&gt;</text>
+    <text x="562" y="265" font-size="21" fill="#E6EAF5">ArchDark (SDDM)</text>
+    <circle cx="360" cy="289" r="5" fill="#E0567C"/>
+    <text x="378" y="296" font-size="21" fill="#E0567C" font-weight="700">boot</text>
+    <text x="530" y="296" font-size="21" fill="#4FA3E0">&gt;</text>
+    <text x="562" y="296" font-size="21" fill="#E6EAF5">ArchNord (GRUB) · grub-btrfs</text>
+    <circle cx="360" cy="320" r="5" fill="#4FA3E0"/>
+    <text x="378" y="327" font-size="21" fill="#4FA3E0" font-weight="700">snapshots</text>
+    <text x="530" y="327" font-size="21" fill="#4FA3E0">&gt;</text>
+    <text x="562" y="327" font-size="21" fill="#E6EAF5">Snapper · snap-pac</text>
+    <circle cx="360" cy="351" r="5" fill="#5CD6A0"/>
+    <text x="378" y="358" font-size="21" fill="#5CD6A0" font-weight="700">gpu</text>
+    <text x="530" y="358" font-size="21" fill="#4FA3E0">&gt;</text>
+    <text x="562" y="358" font-size="21" fill="#E6EAF5">AMD · Intel · NVIDIA, auto-detected</text>
+    <circle cx="360" cy="382" r="5" fill="#45D3D3"/>
+    <text x="378" y="389" font-size="21" fill="#45D3D3" font-weight="700">packages</text>
+    <text x="530" y="389" font-size="21" fill="#4FA3E0">&gt;</text>
+    <text x="562" y="389" font-size="21" fill="#E6EAF5">paru · chaotic-aur · multilib</text>
+    <line x1="330" y1="410" x2="1210" y2="410" stroke="#E0567C" stroke-width="2"/>
+    <text x="378" y="446" font-size="21" fill="#E6EAF5" font-weight="700">colors</text>
+    <text x="530" y="446" font-size="21" fill="#4FA3E0">&gt;</text>
+    <circle cx="570" cy="439" r="7" fill="#FFFFFF"/>
+    <circle cx="596" cy="439" r="7" fill="#C9D3EA"/>
+    <circle cx="622" cy="439" r="7" fill="#7B5CD6"/>
+    <circle cx="648" cy="439" r="7" fill="#E0567C"/>
+    <circle cx="674" cy="439" r="7" fill="#4FA3E0"/>
+    <circle cx="700" cy="439" r="7" fill="#5CD6A0"/>
+    <circle cx="726" cy="439" r="7" fill="#45D3D3"/>
+    <circle cx="752" cy="439" r="7" fill="#1793D1"/>
+    <rect x="1.5" y="1.5" width="1277" height="517" rx="21" fill="none" stroke="url(#g)" stroke-opacity=".55" stroke-width="3"/>
+  </g>
+</svg>

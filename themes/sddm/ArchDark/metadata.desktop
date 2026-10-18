@@ -1,0 +1,16 @@
+[SddmGreeterTheme]
+Name=ArchDark
+Description=ArchDark
+Author=Adarsh
+Copyright=Modified by Adarsh. Based on an SDDM theme (c) 2024 DarkXero, CC-BY-SA
+License=CC-BY-SA
+Type=sddm-theme
+Version=1.0
+Website=https://github.com/sddm/sddm
+Screenshot=preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Theme-Id=ArchDark
+Theme-API=2.0
+QtVersion=6

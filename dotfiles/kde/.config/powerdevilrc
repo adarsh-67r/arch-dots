@@ -1,0 +1,16 @@
+[AC][Display]
+DimDisplayWhenIdle=false
+DisplayBrightness=100
+TurnOffDisplayWhenIdle=false
+
+[AC][SuspendAndShutdown]
+AutoSuspendIdleTimeoutSec=10800
+
+[Battery][Performance]
+PowerProfile=power-saver
+
+[General]
+pausePlayersOnSuspend=false
+
+[LowBattery][Performance]
+PowerProfile=power-saver

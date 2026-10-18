@@ -329,6 +329,8 @@ vim
 visual-studio-code-bin
 vkd3d
 vlc
+vlc-plugin-ffmpeg
+vlc-plugin-freetype
 vscode-json-languageserver
 vulkan-icd-loader
 vulkan-mesa-layers

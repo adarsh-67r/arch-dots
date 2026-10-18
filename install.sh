@@ -182,6 +182,9 @@ install() {
     echo 'GRUB_TOP_LEVEL="/boot/vmlinuz-linux-cachyos"' | sudo tee -a /etc/default/grub >/dev/null
   fi
   sudo sed -i 's/^GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR="Arch"/' /etc/default/grub
+  # Quiet boot: hide kernel messages below errors.
+  grep -q "^GRUB_CMDLINE_LINUX_DEFAULT=.*loglevel=" /etc/default/grub ||
+    sudo sed -i -E 's/^GRUB_CMDLINE_LINUX_DEFAULT="([^"]*)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 quiet loglevel=3"/' /etc/default/grub
   sudo mkdir -p /boot/grub/themes && sudo cp -r themes/grub/ArchNord /boot/grub/themes/
   local theme=/boot/grub/themes/ArchNord/theme.txt
   grep -q '^#\?GRUB_THEME=' /etc/default/grub \

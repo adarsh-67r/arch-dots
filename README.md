@@ -31,7 +31,15 @@
 ## ⚡ Install
 
 > [!NOTE]
-> Start from a fresh `archinstall`: **btrfs** (default subvolumes), **GRUB**, **Minimal** profile, pipewire, NetworkManager, zram, and add `git`.
+> Start from a fresh `archinstall`. From the Arch ISO, this presets **GRUB**, **Minimal** profile, pipewire, NetworkManager, zram, multilib and `git`:
+>
+> ```sh
+> archinstall --config https://raw.githubusercontent.com/adarsh-67r/arch-dots/main/archinstall.json
+> ```
+>
+> You still pick the disk (**btrfs**, default subvolumes, **Snapper** snapshots), user and password. Change `timezone` / keyboard in the menu if you're not in India.
+
+Reboot, log in on the TTY, then:
 
 ```sh
 git clone https://github.com/adarsh-67r/arch-dots

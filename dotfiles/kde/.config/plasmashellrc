@@ -62,7 +62,7 @@ shell=org.kde.plasma.desktop
 floating=0
 maxLength=2502
 minLength=2502
-thickness=34
+thickness=40
 
 [PlasmaViews][Panel 126][Horizontal2560]
 maxLength=2502

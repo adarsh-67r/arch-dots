@@ -73,6 +73,8 @@ pacman_tweaks() {
     grep -q "^$o" /etc/pacman.conf || sudo sed -i "/^\[options\]/a $o" /etc/pacman.conf
   done
   sudo sed -i 's/^#\?ParallelDownloads.*/ParallelDownloads = 5/' /etc/pacman.conf
+  # Build AUR packages on all cores.
+  sudo sed -i "s/^#\?MAKEFLAGS=.*/MAKEFLAGS=\"-j$(nproc)\"/" /etc/makepkg.conf
 }
 
 add_repos() {

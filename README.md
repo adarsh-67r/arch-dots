@@ -55,7 +55,7 @@ Reboot, and you're riced. Then set your station in the weather widget.
 <summary>&nbsp;🛠️ <b>What <code>install.sh</code> does</b></summary>
 <br>
 
-- Tweaks pacman: Color, ILoveCandy, VerbosePkgLists, 5 parallel downloads
+- Tweaks pacman: Color, ILoveCandy, VerbosePkgLists, 5 parallel downloads; AUR builds use all CPU cores
 - Adds chaotic-aur and multilib
 - Installs everything in `packages/`, then GPU drivers for your hardware
 - Sets up Snapper, snap-pac and grub-btrfs: every update is snapshotted and bootable

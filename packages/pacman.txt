@@ -29,7 +29,6 @@ brightnessctl
 btop
 btrfs-assistant
 btrfs-progs
-calf
 cava
 cblas
 chaotic-keyring
@@ -54,7 +53,6 @@ drkonqi
 droidcam-obs-plugin
 duf
 e2fsprogs
-easyeffects
 efibootmgr
 ethtool
 exfatprogs
@@ -194,7 +192,6 @@ linux-firmware-radeon
 localsend
 logrotate
 lshw
-lsp-plugins-lv2
 lvm2
 lzop
 markdownpart

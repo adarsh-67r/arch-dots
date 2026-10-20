@@ -1,3 +1,4 @@
 antigravity-ide
 kwin-scripts-kzones
 kwin-zones
+opencode-beta

@@ -1,0 +1,13 @@
+{
+    "output": {
+        "blocklist": [],
+        "plugins_order": ["bass_enhancer#0", "loudness#0", "autogain#0", "limiter#0"],
+        "bass_enhancer#0": {
+            "bypass": false, "input-gain": 0.0, "output-gain": 0.0,
+            "amount": 4.0, "harmonics": 8.5, "scope": 100.0, "floor": 20.0, "floor-active": true, "blend": 0.0
+        },
+        "loudness#0": { "bypass": false, "input-gain": 0.0, "output-gain": 0.0, "volume": 0.0 },
+        "autogain#0": { "bypass": false, "input-gain": 0.0, "output-gain": 0.0, "target": -14.0 },
+        "limiter#0": { "bypass": false, "input-gain": 0.0, "output-gain": 0.0, "threshold": -1.0 }
+    }
+}

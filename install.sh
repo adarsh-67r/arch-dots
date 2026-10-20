@@ -18,7 +18,7 @@ KDE_FILES=(
   .config/kservicemenurc .config/kiorc .config/trashrc .local/share/dolphin .local/share/kxmlgui5
   .config/apdatifier/config.conf .config/apdatifier/rules.json
 )
-APP_FILES=(.config/btop .config/cava .config/htop .config/topgrade.toml .config/mimeapps.list .config/spotify-flags.conf)
+APP_FILES=(.config/btop .config/cava .config/htop .config/topgrade.toml .config/mimeapps.list .config/spotify-flags.conf .local/share/easyeffects .config/easyeffects/db/easyeffectsrc .config/autostart/com.github.wwmm.easyeffects.desktop)
 WALLPAPER_DIR=Pictures/wallpaper
 # Generic /etc files.
 ETC_FILES=(X11/xorg.conf.d/00-keyboard.conf snapper/configs/root systemd/zram-generator.conf NetworkManager/conf.d/wifi-backend.conf)

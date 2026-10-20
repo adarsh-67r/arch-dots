@@ -29,6 +29,7 @@ brightnessctl
 btop
 btrfs-assistant
 btrfs-progs
+calf
 cava
 cblas
 chaotic-keyring
@@ -52,6 +53,7 @@ downgrade
 drkonqi
 duf
 e2fsprogs
+easyeffects
 efibootmgr
 ethtool
 exfatprogs
@@ -191,6 +193,7 @@ linux-firmware-radeon
 localsend
 logrotate
 lshw
+lsp-plugins-lv2
 lvm2
 lzop
 markdownpart
@@ -210,6 +213,7 @@ ntfs-3g
 nvme-cli
 oh-my-posh-bin
 oniguruma
+onlyoffice-bin
 openldap
 openpgp-card-tools
 openssh
@@ -319,6 +323,7 @@ ttf-hack-nerd
 ttf-jetbrains-mono-nerd
 ttf-meslo-nerd
 ttf-meslo-nerd-font-powerlevel10k
+ttf-ms-fonts
 typescript-language-server
 udiskie
 unarchiver

@@ -51,6 +51,7 @@ dosbox
 dosfstools
 downgrade
 drkonqi
+droidcam-obs-plugin
 duf
 e2fsprogs
 easyeffects
@@ -211,6 +212,8 @@ noto-color-emoji-fontconfig
 npm
 ntfs-3g
 nvme-cli
+obs-backgroundremoval
+obs-studio
 oh-my-posh-bin
 oniguruma
 onlyoffice-bin

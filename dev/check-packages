@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Fail if any package nagi can install exists nowhere: not in the enabled pacman repos, not in the AUR.
+# Runs locally and in CI (an Arch container with core/extra/multilib).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+# shortcut: chaotic-aur packages are checked against the AUR (chaotic builds from it); add the repo in CI if one ever isn't.
+# shortcut: install.sh packages are scraped from its literal install lines; a list built another way needs adding here.
+want=$( {
+  grep -hv '^#' packages/pacman.txt packages/aur.txt
+  grep -v '^#' packages/apps.txt | cut -d'|' -f3 | tr ' ' '\n'
+  scripts/steam-aio --list
+  grep -oP '\["[^"]+"\]="\K[^"]*' install.sh | tr ' ' '\n'                 # KERNELS
+  grep -oP 'pkgs(\+)?=\(\K[^)$"]+' install.sh | tr ' ' '\n'               # gpu_drivers
+  grep -oP '(pacman|paru) -S --needed --noconfirm \K[a-z0-9][^"$<>|]*' install.sh | tr ' ' '\n'
+} | grep -E '^[a-z0-9@._+-]+$' | grep -vxE 'chaotic-(keyring|mirrorlist)' | sort -u)  # add_repos installs these from chaotic's URLs
+# Not in any enabled repo: ask the AUR, 100 names per request.
+left=$(comm -23 <(echo "$want") <(pacman -Slq | sort -u))
+found=$(xargs -r -n100 <<<"$left" | while read -ra batch; do
+  curl -fsS "https://aur.archlinux.org/rpc/v5/info?$(printf 'arg[]=%s&' "${batch[@]}")" | grep -oP '"Name":"\K[^"]+'
+done | sort -u)
+missing=$(comm -23 <(echo "$left") <(echo "$found"))
+echo "checked $(grep -c . <<<"$want") packages"
+[[ -z $missing ]] || { echo "not found in any repo or the AUR:"; echo "$missing"; exit 1; }

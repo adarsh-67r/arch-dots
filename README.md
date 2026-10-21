@@ -225,9 +225,18 @@ nagi/
 ├── hardware/omen-8bcd/   HP OMEN 16 fixes (applied only on that board)
 ├── themes/               grub/ArchNord
 ├── scripts/              upd, keyfix, rpipe, nagi-update, steam-aio
+├── dev/                  CI tests: package check
 ├── wallpapers/           Giyu, in a couple of moods
 └── assets/               screenshots and README art
 ```
+
+</details>
+
+<details>
+<summary>&nbsp;🧪 <b>Tests</b></summary>
+<br>
+
+Every push runs ShellCheck and `dev/check-packages`, which fails if any package nagi can install is missing from the repos and the AUR.
 
 </details>
 

@@ -448,7 +448,7 @@ install_nagi() {
   for p in zsh-users/zsh-autosuggestions zsh-users/zsh-syntax-highlighting zsh-users/zsh-completions; do
     [[ -d ~/.oh-my-zsh/custom/plugins/${p#*/} ]] || git clone --depth 1 "https://github.com/$p" ~/.oh-my-zsh/custom/plugins/${p#*/}
   done
-  [[ $SHELL == */zsh ]] || chsh -s /usr/bin/zsh
+  [[ $SHELL == */zsh ]] || sudo chsh -s /usr/bin/zsh "$USER"
 
   setup_snapper
   apply_files

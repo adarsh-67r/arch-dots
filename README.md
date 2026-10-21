@@ -8,7 +8,7 @@
 
 <br>
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=20&duration=2600&pause=1200&color=A2C9FD&center=true&vCenter=true&width=520&lines=%E2%9D%AF+%E5%87%AA+nagi+%E2%80%94+dead+calm;%E2%9D%AF+Arch+%2B+niri+%2B+Dux+Shell;%E2%9D%AF+colors+pulled+from+the+wallpaper;%E2%9D%AF+archinstall+%E2%86%92+Dux+%E2%86%92+nagi" alt="tagline">
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=20&duration=2600&pause=1400&color=A2C9FD&center=true&vCenter=true&width=560&lines=%E2%9D%AF+%E5%87%AA+eleventh+form%3A+Dead+Calm;%E2%9D%AF+Arch+%C2%B7+niri+%C2%B7+Dux+Shell;%E2%9D%AF+no+ripples%2C+no+noise;%E2%9D%AF+a+desktop+that+stays+out+of+your+way" alt="tagline">
 
 <br>
 

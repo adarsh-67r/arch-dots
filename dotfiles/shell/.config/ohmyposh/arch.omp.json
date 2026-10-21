@@ -1,0 +1,235 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "console_title_template": "{{ if .Root }}root @ {{ end }}{{ .Shell }} in {{ .Folder }}",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "blue",
+          "foreground": "black",
+          "leading_diamond": "",
+          "style": "diamond",
+          "template": "<b>  ARCH </b>",
+          "type": "os"
+        },
+        {
+          "background": "lightBlue",
+          "foreground": "black",
+          "powerline_symbol": "",
+          "style": "powerline",
+          "template": "<b>  {{ .Name }} </b>",
+          "type": "shell"
+        },
+        {
+          "background": "lightMagenta",
+          "foreground": "black",
+          "powerline_symbol": "",
+          "style": "powerline",
+          "template": "<b>  root </b>",
+          "type": "root"
+        },
+        {
+          "type": "cmake",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "black",
+          "background": "cyan",
+          "template": "<b>   cmake {{ .Full }} </b>"
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "properties": {
+            "display_mode": "context"
+          },
+          "foreground": "black",
+          "foreground_templates": [],
+          "background": "lightCyan",
+          "background_templates": [
+            "{{ if .Venv}}blue{{ end }}"
+          ],
+          "template": " <b> {{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}</b> "
+        },
+        {
+          "type": "go",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "black",
+          "background": "cyan",
+          "template": "<b> ‭ {{ .Full }} </b>"
+        },
+        {
+          "type": "rust",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "black",
+          "background": "blue",
+          "template": "  {{ .Full }} "
+        },
+        {
+          "background": "lightMagenta",
+          "foreground": "black",
+          "powerline_symbol": "",
+          "properties": {
+            "branch_icon": " ",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "fetch_worktree_count": true
+          },
+          "style": "powerline",
+          "template": "<b> {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<blue>  {{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} </b>",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "background": "cyan",
+          "background_templates": [
+            "{{ if gt .Code 0 }}red{{ end }}"
+          ],
+          "foreground": "black",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}lightWhite{{ end }}"
+          ],
+          "leading_diamond": "",
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "diamond",
+          "template": "{{ if gt .Code 0 }}{{ else }}{{ end }}",
+          "type": "status",
+          "trailing_diamond": ""
+        },
+        {
+          "background": "darkGray",
+          "foreground": "lightWhite",
+          "properties": {
+            "style": "roundrock",
+            "threshold": 0
+          },
+          "style": "diamond",
+          "template": "  {{ .FormattedMs }}",
+          "trailing_diamond": "",
+          "type": "executiontime"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "blue",
+          "style": "plain",
+          "template": "╭─",
+          "type": "text"
+        },
+        {
+          "foreground": "lightBlue",
+          "properties": {
+            "time_format": " <lightCyan> 03:04:05 PM</> <cyan>|</>  06/01/02  January  Wednesday "
+          },
+          "style": "plain",
+          "template": "{{ .CurrentDate | date .Format }}",
+          "type": "time"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "type": "prompt",
+      "segments": [
+        {
+          "foreground": "blue",
+          "style": "plain",
+          "template": "│",
+          "type": "text"
+        },
+        {
+          "style": "plain",
+          "template": "  <blue> {{ .UserName }}</> <cyan>|</> <lightBlue>󰍹 {{ .HostName }}</>",
+          "type": "session"
+        }
+      ]
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "type": "prompt",
+      "segments": [
+        {
+          "foreground": "blue",
+          "style": "plain",
+          "template": "│",
+          "type": "text"
+        },
+        {
+          "leading_diamond": "",
+          "properties": {
+            "folder_icon": "  ",
+            "folder_separator_icon": " <blue></> ",
+            "home_icon": "",
+            "style": "agnoster_short",
+            "max_depth": 4,
+            "right_format": "<u><b>%s</b></u>",
+            "mapped_locations": {
+              "~/Videos": " <blue></> ",
+              "~/Desktop": " <blue></> ",
+              "~/Documents": " <blue></> 󰈙",
+              "~/Downloads": " <blue></> ",
+              "~/Pictures/": " <blue></> ",
+              "~/Music": " <blue></> "
+            }
+          },
+          "style": "diamond",
+          "template": "  <lightCyan>{{ if not .Writable }}<red> {{ end }}{{ if .RootDir }}{{ else }}{{ .Path }}{{ end }}</> ",
+          "type": "path"
+        }
+      ]
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "blue",
+          "style": "plain",
+          "template": "╰─",
+          "type": "text"
+        },
+        {
+          "foreground": "blue",
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "plain",
+          "template": "❯ ",
+          "type": "status"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "osc99": true,
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "lightWhite",
+    "template": " "
+  },
+  "secondary_prompt": {
+    "background": "transparent",
+    "foreground": "blue",
+    "template": "╰─❯ "
+  },
+  "version": 3
+}

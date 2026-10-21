@@ -1,0 +1,33 @@
+# App catalog for the installer menu: Category|Label|packages.
+# No commas in labels (gum splits on them). An app starts ticked in the installer when its
+# first package is in pacman.txt / aur.txt.
+Browsers|Brave|brave-bin
+Browsers|Firefox|firefox
+Browsers|Zen Browser|zen-browser-bin
+Browsers|Vivaldi|vivaldi vivaldi-ffmpeg-codecs
+Browsers|LibreWolf|librewolf
+Browsers|Chromium|chromium
+Chat|Discord|discord
+Chat|Vesktop (Discord)|vesktop
+Chat|Telegram|telegram-desktop
+Chat|ZapZap (WhatsApp)|zapzap
+Development|VS Code|visual-studio-code-bin
+Development|Antigravity|antigravity-ide
+Development|opencode|opencode-beta
+Development|Zed|zed
+Development|Docker|docker docker-buildx docker-compose
+Development|Dev toolchain: gh · node · cmake · LSPs|github-cli npm pnpm cmake ninja bash-language-server typescript-language-server vscode-json-languageserver
+Media|Spotify|spotify
+Media|OBS Studio + plugins|obs-studio obs-backgroundremoval droidcam-obs-plugin
+Media|VLC|vlc
+Media|mpv|mpv
+Office|OnlyOffice|onlyoffice-bin
+Office|LibreOffice|libreoffice-fresh
+Office|Obsidian|obsidian
+Creative|GIMP|gimp
+Creative|Krita|krita
+Creative|Inkscape|inkscape
+Utilities|LocalSend|localsend
+Utilities|Free Download Manager|freedownloadmanager
+Utilities|KeePassXC|keepassxc
+Utilities|Bitwarden|bitwarden

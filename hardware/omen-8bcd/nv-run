@@ -1,0 +1,3 @@
+#!/bin/bash
+# prime-run, plus NVIDIA EGL: hdmi-mode off forces mesa EGL session-wide, which keeps Wayland apps on AMD.
+__EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json exec /usr/bin/prime-run "$@"

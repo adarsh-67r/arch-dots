@@ -1,0 +1,10 @@
+# Reinstall GRUB to the ESP when grub upgrades, so the bootloader matches its modules.
+[Trigger]
+Type = Package
+Operation = Upgrade
+Target = grub
+
+[Action]
+Description = Installing GRUB to the ESP...
+When = PostTransaction
+Exec = /usr/bin/sh -c '[ -d /sys/firmware/efi ] || { echo "BIOS boot: run grub-install on your disk yourself"; exit 0; }; grub-install --target=x86_64-efi --efi-directory="$(findmnt -no TARGET /boot/efi || findmnt -no TARGET /efi || echo /boot)"'

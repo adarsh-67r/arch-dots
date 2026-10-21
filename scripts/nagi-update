@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Update this machine to the latest nagi: pull the repo, then install new packages and re-apply configs and scripts.
+set -euo pipefail
+cd "${NAGI_DIR:-$HOME/nagi}"
+# Configs changed here but never saved to the repo would be overwritten; list them first.
+mapfile -t changed < <(./install.sh changed)
+if (( ${#changed[@]} )); then
+  echo "These local configs differ from the repo and will be overwritten:"
+  printf '  %s\n' "${changed[@]}"
+  echo "To keep them: ./install.sh save, commit and push, then run nagi-update again."
+  read -rp "Overwrite anyway? [y/N] " a
+  [[ $a == [yY] ]] || exit 1
+fi
+git pull --ff-only
+# exec: install.sh is read from the freshly pulled tree, not a file changing under a running bash.
+exec ./install.sh update

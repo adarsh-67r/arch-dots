@@ -1,0 +1,34 @@
+## cava: tuned for kitty + DMS. Full option reference: /usr/share/doc/cava/example_files/config
+
+[general]
+framerate = 60
+# Fixed sensitivity reads better than autosens jumping around between tracks.
+autosens = 1
+bar_width = 2
+bar_spacing = 1
+
+[input]
+method = pipewire
+source = auto
+
+[output]
+method = noncurses
+channels = stereo
+mono_option = average
+# Mirror the stereo channels so bass sits in the middle.
+reverse = 0
+
+[color]
+# Gradient from the current DMS (matugen) palette, bottom to top.
+# shortcut: static hex, doesn't follow wallpaper changes; re-pick from ~/.config/kitty/dank-theme.conf if it clashes.
+gradient = 1
+gradient_count = 4
+gradient_color_1 = '#88b5f0'
+gradient_color_2 = '#a2c9fd'
+gradient_color_3 = '#bedaff'
+gradient_color_4 = '#d5e7ff'
+
+[smoothing]
+monstercat = 1
+waves = 0
+noise_reduction = 77

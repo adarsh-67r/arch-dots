@@ -1,0 +1,9 @@
+#!/bin/sh
+# Run by greetd.service before start: point the greeter's niri at the current render nodes
+# (renderD numbers can change between boots; dms-greeter sync copies them in as fixed paths).
+conf=/etc/greetd/niri/dms.kdl
+amd=$(readlink -f /dev/dri/by-path/pci-0000:05:00.0-render)
+nv=$(readlink -f /dev/dri/by-path/pci-0000:01:00.0-render)
+[ -e "$amd" ] && [ -e "$nv" ] && [ -f "$conf" ] || exit 0
+sed -i -e "s|render-drm-device \"[^\"]*\"|render-drm-device \"$amd\"|" \
+       -e "s|ignore-drm-device \"[^\"]*\"|ignore-drm-device \"$nv\"|" "$conf"

@@ -1,0 +1,6 @@
+antigravity-ide
+dankcalendar-bin
+dsearch-bin
+dux-files-bin
+greetd-dms-greeter-bin
+opencode-beta

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Steam + everything Proton games need. Not part of install.sh: run it when you want gaming.
+#   steam-aio          install
+#   steam-aio --list   print the packages (install.sh save uses this to keep them out of nagi's lists)
+set -euo pipefail
+PKGS=(steam gamescope mangohud lib32-mangohud mangoverlay protonplus gamemode lib32-gamemode game-devices-udev realtime-privileges
+  wine wine-installer winetricks wineasio wine-nine vkd3d lib32-vkd3d icoextract icoutils alsa-oss fluidsynth gtk3 dosbox ttf-liberation wqy-zenhei
+  giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 openal v4l-utils lib32-libpulse
+  libgpg-error lib32-libgpg-error libgcrypt lib32-libgcrypt alsa-plugins lib32-alsa-plugins lib32-alsa-lib
+  libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama
+  ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt libva lib32-libva lib32-gtk3 pipewire-jack lib32-pipewire-jack)
+[[ ${1:-} == --list ]] && { printf '%s\n' "${PKGS[@]}"; exit; }
+paru -S --needed "${PKGS[@]}"
+# gamemode and realtime-privileges only take effect for members of their groups.
+sudo usermod -aG gamemode,realtime "$USER"
+echo "Done. Log out and back in for the group changes."

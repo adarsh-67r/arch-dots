@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Toggle niri between AMD-only (RTX 4050 can sleep, HDMI dead) and both GPUs (HDMI works).
+# HDMI is wired to the NVIDIA GPU on this laptop. Takes effect after log out / log in.
+niri_dropin="$HOME/.config/systemd/user/niri.service.d/amd-only.conf"
+niri_gpu="$HOME/.config/niri/gpu.kdl"   # included from niri's config.kdl
+mesa=/usr/share/glvnd/egl_vendor.d/50_mesa.json
+
+case "$1" in
+  off)
+    [[ -f $mesa ]] || { echo "error: $mesa missing — not changing anything"; exit 1; }
+    mkdir -p "${niri_dropin%/*}"
+    # Mesa EGL for niri; spawned apps inherit it too, so ~/.local/bin/nv-run overrides it to reach the 4050.
+    # niri reads render nodes from its config; regenerate them at every start since renderD numbers can change between boots.
+    printf '[Service]\nEnvironment=__EGL_VENDOR_LIBRARY_FILENAMES=%s\nExecStartPre=%s niri-conf\n' "$mesa" "$HOME/.local/bin/hdmi-mode" > "$niri_dropin"
+    "$0" niri-conf
+    systemctl --user daemon-reload
+    echo "HDMI off: niri will use only the AMD GPU. Log out and back in." ;;
+  on)
+    rm -f "$niri_dropin" "$niri_gpu"
+    systemctl --user daemon-reload
+    echo "HDMI on: niri will use both GPUs. Log out and back in." ;;
+  niri-conf)
+    # Called by niri.service before start: render on AMD, ignore the 4050 entirely.
+    amd_render=$(readlink -f /dev/dri/by-path/pci-0000:05:00.0-render)
+    nv_render=$(readlink -f /dev/dri/by-path/pci-0000:01:00.0-render)
+    [[ -e $amd_render && -e $nv_render ]] || { echo "error: render nodes not found" >&2; exit 1; }
+    printf 'debug {\n    render-drm-device "%s"\n    ignore-drm-device "%s"\n}\n' "$amd_render" "$nv_render" > "$niri_gpu" ;;
+  *)
+    if [[ -f $niri_dropin ]]; then echo "mode: off (AMD only, 4050 can sleep)"; else echo "mode: on (HDMI works)"; fi
+    echo "4050 status: $(cat /sys/bus/pci/devices/0000:01:00.0/power/runtime_status)"
+    echo "usage: hdmi-mode on|off" ;;
+esac

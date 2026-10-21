@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Update everything: repo + AUR packages, Flatpaks, Rust, firmware.
+set -e
+paru -Syu
+command -v flatpak >/dev/null && flatpak update -y
+command -v rustup >/dev/null && rustup update
+if command -v fwupdmgr >/dev/null; then
+  fwupdmgr refresh --force || true
+  fwupdmgr update || true
+fi
+# pacman deletes the running kernel's module dir when that kernel is upgraded.
+[[ -d /usr/lib/modules/$(uname -r) ]] || echo "Kernel was updated: reboot to use it."

@@ -22,6 +22,7 @@
   "showOccupiedWorkspacesOnly": true,
   "greeterFontFamily": "Fira Code",
   "dankLauncherV2BorderEnabled": true,
+  "networkPreference": "wifi",
   "iconThemeDark": "Tela-circle-blue-dark",
   "cursorSettings": {
     "theme": "System Default",
@@ -57,6 +58,7 @@
   "osdPowerProfileEnabled": true,
   "updaterCheckOnStart": true,
   "updaterIntervalSeconds": 14400,
+  "updaterIncludeFlatpak": false,
   "screenPreferences": {
     "wallpaper": [
       "all"
